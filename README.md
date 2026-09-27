@@ -2,7 +2,43 @@
 
 An open-source, privacy-first physical-therapy coaching prototype that uses on-device computer vision to analyze movement and provide real-time exercise feedback without requiring raw camera video to leave the user's device.
 
-> **Status:** pre-alpha / active build. This is a research and developer project, not a medical device and not a substitute for professional medical care.
+> **Status:** pre-alpha / active build. A runnable local pose-estimation baseline is now included. This is a research and developer project, not a medical device and not a substitute for professional medical care.
+
+## Runnable v0.1 demo
+
+The repository now includes a working local webcam baseline: camera capture → MediaPipe pose estimation → live skeleton overlay → FPS / inference latency → simple 2D knee-angle metrics.
+
+The default demo does **not save or upload camera frames**.
+
+### Quick start
+
+Python 3.10 or 3.11 is recommended.
+
+```bash
+git clone https://github.com/viswamba/privacy-pt-coach.git
+cd privacy-pt-coach
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -e .
+
+privacy-pt-demo
+```
+
+On Windows, activate the environment with:
+
+```powershell
+.\.venv\Scripts\activate
+```
+
+Press **Q** or **Esc** to exit. If camera 0 is not the right device, try:
+
+```bash
+privacy-pt-demo --camera 1
+```
+
+macOS and Windows may ask you to grant camera permission to Terminal / your Python environment.
 
 ## Why this project
 
